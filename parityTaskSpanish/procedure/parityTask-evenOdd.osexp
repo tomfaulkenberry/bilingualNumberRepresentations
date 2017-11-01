@@ -1,0 +1,454 @@
+---
+API: 2
+OpenSesame: 3.1.6
+Platform: posix
+---
+set width 1024
+set uniform_coordinates yes
+set title "parity task - evenOdd"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set sampler_backend legacy
+set round_decimals 2
+set mouse_backend legacy
+set keyboard_backend legacy
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 36
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "/Users/tom/github/bilingualNumberRepresentations/parityTask/procedure"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set color_backend legacy
+set clock_backend legacy
+set canvas_backend legacy
+set bidi no
+set background black
+
+define sketchpad ISI
+	set duration 1000
+	set description "Displays stimuli"
+
+define sketchpad ISI_1
+	set duration 1000
+	set description "Displays stimuli"
+
+define sketchpad ISI_1_1
+	set duration 1000
+	set description "Displays stimuli"
+
+define sketchpad ISI_2
+	set duration 1000
+	set description "Displays stimuli"
+
+define loop block1
+	set source_file ""
+	set source table
+	set repeat 20
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 8
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 stimulus uno
+	setcycle 0 number 1
+	setcycle 0 parity odd
+	setcycle 0 side right
+	setcycle 0 correct_response l
+	setcycle 1 stimulus dos
+	setcycle 1 number 2
+	setcycle 1 parity even
+	setcycle 1 side left
+	setcycle 1 correct_response a
+	setcycle 2 stimulus tres
+	setcycle 2 number 3
+	setcycle 2 parity odd
+	setcycle 2 side right
+	setcycle 2 correct_response l
+	setcycle 3 stimulus cuatro
+	setcycle 3 number 4
+	setcycle 3 parity even
+	setcycle 3 side left
+	setcycle 3 correct_response a
+	setcycle 4 stimulus seis
+	setcycle 4 number 6
+	setcycle 4 parity even
+	setcycle 4 side left
+	setcycle 4 correct_response a
+	setcycle 5 stimulus siete
+	setcycle 5 number 7
+	setcycle 5 parity odd
+	setcycle 5 side right
+	setcycle 5 correct_response l
+	setcycle 6 stimulus ocho
+	setcycle 6 number 8
+	setcycle 6 parity even
+	setcycle 6 side left
+	setcycle 6 correct_response a
+	setcycle 7 stimulus nueve
+	setcycle 7 number 9
+	setcycle 7 parity odd
+	setcycle 7 side right
+	setcycle 7 correct_response l
+	run sequence
+
+define loop block2
+	set source_file ""
+	set source table
+	set repeat 20
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 8
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 stimulus uno
+	setcycle 0 number 1
+	setcycle 0 parity odd
+	setcycle 0 side left
+	setcycle 0 correct_response a
+	setcycle 1 stimulus dos
+	setcycle 1 number 2
+	setcycle 1 parity even
+	setcycle 1 side right
+	setcycle 1 correct_response l
+	setcycle 2 stimulus tres
+	setcycle 2 number 3
+	setcycle 2 parity odd
+	setcycle 2 side left
+	setcycle 2 correct_response a
+	setcycle 3 stimulus cuatro
+	setcycle 3 number 4
+	setcycle 3 parity even
+	setcycle 3 side right
+	setcycle 3 correct_response l
+	setcycle 4 stimulus seis
+	setcycle 4 number 6
+	setcycle 4 parity even
+	setcycle 4 side right
+	setcycle 4 correct_response l
+	setcycle 5 stimulus siete
+	setcycle 5 number 7
+	setcycle 5 parity odd
+	setcycle 5 side left
+	setcycle 5 correct_response a
+	setcycle 6 stimulus ocho
+	setcycle 6 number 8
+	setcycle 6 parity even
+	setcycle 6 side right
+	setcycle 6 correct_response l
+	setcycle 7 stimulus nueve
+	setcycle 7 number 9
+	setcycle 7 parity odd
+	setcycle 7 side left
+	setcycle 7 correct_response a
+	run sequence_1
+
+define sketchpad end
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="This is the end of the experiment.<br /><br />Thank you very much for your<br />participation!" x=0 y=0 z_index=0
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run instruction1 always
+	run instruction2 always
+	run instruction3 always
+	run practiceBlock1 always
+	run pausepractice always
+	run block1 always
+	run pauseBlock1 always
+	run instruction4 always
+	run instruction5 always
+	run practiceBlock2 always
+	run pausepractice2 always
+	run block2 always
+	run end always
+
+define sketchpad fixation
+	set duration 500
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad fixation_1
+	set duration 500
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad fixation_1_1
+	set duration 500
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad fixation_2
+	set duration 500
+	set description "Displays stimuli"
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+
+define sketchpad instruction1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="In this experiment, you will be<br />presented with number words<br />written in Spanish.<br /><br />Your task is to quickly and <br />accurately decide whether the <br />presented number is<br />EVEN or ODD.<br /><br />(press any key to continue)" x=32 y=-32 z_index=0
+
+define sketchpad instruction2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="If the presented number word is <br />EVEN, press the A key <br />on the keyboard.<br /><br />If the presented number word is<br />ODD, press the L key.<br /><br />(press any key to continue)" x=32 y=-32 z_index=0
+
+define sketchpad instruction3
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="You will now complete some practice trials to <br />help familiarize you with the task.<br /><br />Each trial will begin with a fixation point <br />in the center of the screen.  Then the number <br />word will appear.<br /><br />Remember:<br />if number is EVEN, press A<br />if number is ODD, press L<br /><br />Please try to respond quickly, but accurately.<br /><br />Press any key when you are ready<br />to begin." x=0.0 y=-32.0 z_index=0
+
+define sketchpad instruction4
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="In this block of trials, you will<br />reverse your responses.<br /><br />This time, if the presented number word is <br />EVEN, press the L key <br />on the keyboard.<br /><br />If the presented number word is<br />ODD, press the A key.<br /><br />(press any key to continue)" x=0.0 y=-32.0 z_index=0
+
+define sketchpad instruction5
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="As before, you will first complete some <br />practice trials.<br /><br />Each trial will begin with a fixation point <br />in the center of the screen.  Then the number <br />word will appear.<br /><br />Remember:<br />if number is EVEN, press L<br />if number is ODD, press A<br /><br />Please try to respond quickly, but accurately.<br /><br />Press any key when you are ready<br />to begin." x=0 y=-32 z_index=0
+
+define logger logger
+	set description "Logs experimental data"
+	set auto_log no
+	log stimulus
+	log number
+	log parity
+	log side
+	log correct
+	log correct
+	log response
+	log response_time
+	log subject_nr
+
+define logger logger_1
+	set description "Logs experimental data"
+	set auto_log no
+	log stimulus
+	log number
+	log parity
+	log side
+	log correct
+	log correct
+	log response
+	log response_time
+	log subject_nr
+
+define sketchpad pauseBlock1
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="This ends the first block of experimental <br />trials. You may take a short break.<br /><br />Press any key when you are ready<br />to begin the second (and final) block." x=0 y=0 z_index=0
+
+define sketchpad pausepractice
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="This is the end of the practice<br />session.<br /><br />You will now complete 160 trials of the <br />same task. Remember to respond <br />quickly and accurately.<br /><br />Press any key when you are ready<br />to begin." x=0 y=0 z_index=0
+
+define sketchpad pausepractice2
+	set duration keypress
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=36 html=yes show_if=always text="This is the end of the practice<br />session.<br /><br />You will now complete 160 trials of the <br />same task. Remember to respond <br />quickly and accurately.<br /><br />Press any key when you are ready<br />to begin." x=0 y=0 z_index=0
+
+define loop practiceBlock1
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 8
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 stimulus uno
+	setcycle 0 number 1
+	setcycle 0 parity odd
+	setcycle 0 side right
+	setcycle 0 correct_response l
+	setcycle 1 stimulus dos
+	setcycle 1 number 2
+	setcycle 1 parity even
+	setcycle 1 side left
+	setcycle 1 correct_response a
+	setcycle 2 stimulus tres
+	setcycle 2 number 3
+	setcycle 2 parity odd
+	setcycle 2 side right
+	setcycle 2 correct_response l
+	setcycle 3 stimulus cuatro
+	setcycle 3 number 4
+	setcycle 3 parity even
+	setcycle 3 side left
+	setcycle 3 correct_response a
+	setcycle 4 stimulus seis
+	setcycle 4 number 6
+	setcycle 4 parity even
+	setcycle 4 side left
+	setcycle 4 correct_response a
+	setcycle 5 stimulus siete
+	setcycle 5 number 7
+	setcycle 5 parity odd
+	setcycle 5 side right
+	setcycle 5 correct_response l
+	setcycle 6 stimulus ocho
+	setcycle 6 number 8
+	setcycle 6 parity even
+	setcycle 6 side left
+	setcycle 6 correct_response a
+	setcycle 7 stimulus nueve
+	setcycle 7 number 9
+	setcycle 7 parity odd
+	setcycle 7 side right
+	setcycle 7 correct_response l
+	run sequencePractice1
+
+define loop practiceBlock2
+	set source_file ""
+	set source table
+	set repeat 1
+	set order random
+	set description "Repeatedly runs another item"
+	set cycles 8
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 stimulus uno
+	setcycle 0 number 1
+	setcycle 0 parity odd
+	setcycle 0 side left
+	setcycle 0 correct_response a
+	setcycle 1 stimulus dos
+	setcycle 1 number 2
+	setcycle 1 parity even
+	setcycle 1 side right
+	setcycle 1 correct_response l
+	setcycle 2 stimulus tres
+	setcycle 2 number 3
+	setcycle 2 parity odd
+	setcycle 2 side left
+	setcycle 2 correct_response a
+	setcycle 3 stimulus cuatro
+	setcycle 3 number 4
+	setcycle 3 parity even
+	setcycle 3 side right
+	setcycle 3 correct_response l
+	setcycle 4 stimulus seis
+	setcycle 4 number 6
+	setcycle 4 parity even
+	setcycle 4 side right
+	setcycle 4 correct_response l
+	setcycle 5 stimulus siete
+	setcycle 5 number 7
+	setcycle 5 parity odd
+	setcycle 5 side left
+	setcycle 5 correct_response a
+	setcycle 6 stimulus ocho
+	setcycle 6 number 8
+	setcycle 6 parity even
+	setcycle 6 side right
+	setcycle 6 correct_response l
+	setcycle 7 stimulus nueve
+	setcycle 7 number 9
+	setcycle 7 parity odd
+	setcycle 7 side left
+	setcycle 7 correct_response a
+	run sequencePractice1_1
+
+define keyboard_response response
+	set timeout infinite
+	set flush yes
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "a;l"
+
+define keyboard_response response_1
+	set timeout infinite
+	set flush yes
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "a;l"
+
+define keyboard_response response_1_1
+	set timeout infinite
+	set flush yes
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "a;l"
+
+define keyboard_response response_2
+	set timeout infinite
+	set flush yes
+	set duration keypress
+	set description "Collects keyboard responses"
+	set allowed_responses "a;l"
+
+define sequence sequence
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation always
+	run stimulus always
+	run response always
+	run logger always
+	run ISI always
+
+define sequence sequencePractice1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation_1 always
+	run stimulus_1 always
+	run response_1 always
+	run logger always
+	run ISI_1 always
+
+define sequence sequencePractice1_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation_1_1 always
+	run stimulus_1_1 always
+	run response_1_1 always
+	run logger always
+	run ISI_1_1 always
+
+define sequence sequence_1
+	set flush_keyboard yes
+	set description "Runs a number of items in sequence"
+	run fixation_2 always
+	run stimulus_2 always
+	run response_2 always
+	run logger always
+	run ISI_2 always
+
+define sketchpad stimulus
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=42 html=yes show_if=always text="[stimulus]" x=0 y=0 z_index=0
+
+define sketchpad stimulus_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=42 html=yes show_if=always text="[stimulus]" x=0 y=0 z_index=0
+
+define sketchpad stimulus_1_1
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=42 html=yes show_if=always text="[stimulus]" x=0 y=0 z_index=0
+
+define sketchpad stimulus_2
+	set duration 0
+	set description "Displays stimuli"
+	draw textline center=1 color=white font_bold=no font_family=mono font_italic=no font_size=42 html=yes show_if=always text="[stimulus]" x=0 y=0 z_index=0
+
